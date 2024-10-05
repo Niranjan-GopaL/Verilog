@@ -1,0 +1,48 @@
+$date
+  Sat Oct 05 09:40:58 2024
+$end
+$version
+  GHDL v0
+$end
+$timescale
+  1 fs
+$end
+$scope module standard $end
+$upscope $end
+$scope module std_logic_1164 $end
+$upscope $end
+$scope module tb_example_and $end
+$var reg 1 ! tb_input_1 $end
+$var reg 1 " tb_input_2 $end
+$var reg 1 # tb_and_result $end
+$scope module uut $end
+$var reg 1 $ input_1 $end
+$var reg 1 % input_2 $end
+$var reg 1 & and_result $end
+$var reg 1 ' and_gate $end
+$upscope $end
+$upscope $end
+$enddefinitions $end
+#0
+0!
+0"
+0#
+0$
+0%
+0&
+0'
+#10000000
+1"
+1%
+#20000000
+1!
+0"
+1$
+0%
+#30000000
+1"
+1#
+1%
+1&
+1'
+#40000000
