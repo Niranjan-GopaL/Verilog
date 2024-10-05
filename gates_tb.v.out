@@ -1,0 +1,66 @@
+#! /c/Source/iverilog-install/bin/vvp
+:ivl_version "12.0 (devel)" "(s20150603-1539-g2693dd32b)";
+:ivl_delay_selection "TYPICAL";
+:vpi_time_precision + 0;
+:vpi_module "C:\iverilog\lib\ivl\system.vpi";
+:vpi_module "C:\iverilog\lib\ivl\vhdl_sys.vpi";
+:vpi_module "C:\iverilog\lib\ivl\vhdl_textio.vpi";
+:vpi_module "C:\iverilog\lib\ivl\v2005_math.vpi";
+:vpi_module "C:\iverilog\lib\ivl\va_math.vpi";
+S_000001ef279bbd90 .scope module, "and_gate" "and_gate" 2 10;
+ .timescale 0 0;
+    .port_info 0 /INPUT 1 "a";
+    .port_info 1 /INPUT 1 "b";
+    .port_info 2 /OUTPUT 1 "out";
+o000001ef27a06fd8 .functor BUFZ 1, C4<z>; HiZ drive
+o000001ef27a07008 .functor BUFZ 1, C4<z>; HiZ drive
+L_000001ef279bab80 .functor AND 1, o000001ef27a06fd8, o000001ef27a07008, C4<1>, C4<1>;
+v000001ef279b7150_0 .net "a", 0 0, o000001ef27a06fd8;  0 drivers
+v000001ef279bbf20_0 .net "b", 0 0, o000001ef27a07008;  0 drivers
+v000001ef279b9540_0 .net "out", 0 0, L_000001ef279bab80;  1 drivers
+S_000001ef279b6950 .scope module, "gates_tb" "gates_tb" 3 4;
+ .timescale 0 0;
+v000001ef27a05820_0 .var "a", 0 0;
+v000001ef27a058c0_0 .var "b", 0 0;
+v000001ef27a05960_0 .net "out", 0 0, L_000001ef279b95e0;  1 drivers
+S_000001ef279b6ae0 .scope module, "G1" "xor_gate" 3 8, 2 1 0, S_000001ef279b6950;
+ .timescale 0 0;
+    .port_info 0 /INPUT 1 "a";
+    .port_info 1 /INPUT 1 "b";
+    .port_info 2 /OUTPUT 1 "out";
+L_000001ef279b95e0 .functor XOR 1, v000001ef27a05820_0, v000001ef27a058c0_0, C4<0>, C4<0>;
+v000001ef279b6c70_0 .net "a", 0 0, v000001ef27a05820_0;  1 drivers
+v000001ef279b6d10_0 .net "b", 0 0, v000001ef27a058c0_0;  1 drivers
+v000001ef27a05780_0 .net "out", 0 0, L_000001ef279b95e0;  alias, 1 drivers
+    .scope S_000001ef279b6950;
+T_0 ;
+    %vpi_call 3 12 "$dumpfile", "gates_tb.vcd" {0 0 0};
+    %vpi_call 3 13 "$dumpvars", 32'sb00000000000000000000000000000000, S_000001ef279b6950 {0 0 0};
+    %pushi/vec4 0, 0, 1;
+    %store/vec4 v000001ef27a05820_0, 0, 1;
+    %pushi/vec4 0, 0, 1;
+    %store/vec4 v000001ef27a058c0_0, 0, 1;
+    %delay 10, 0;
+    %pushi/vec4 0, 0, 1;
+    %store/vec4 v000001ef27a05820_0, 0, 1;
+    %pushi/vec4 1, 0, 1;
+    %store/vec4 v000001ef27a058c0_0, 0, 1;
+    %delay 10, 0;
+    %pushi/vec4 1, 0, 1;
+    %store/vec4 v000001ef27a05820_0, 0, 1;
+    %pushi/vec4 0, 0, 1;
+    %store/vec4 v000001ef27a058c0_0, 0, 1;
+    %delay 10, 0;
+    %pushi/vec4 1, 0, 1;
+    %store/vec4 v000001ef27a05820_0, 0, 1;
+    %pushi/vec4 1, 0, 1;
+    %store/vec4 v000001ef27a058c0_0, 0, 1;
+    %delay 10, 0;
+    %end;
+    .thread T_0;
+# The file index is used to find the file name in the following table.
+:file_names 4;
+    "N/A";
+    "<interactive>";
+    "./gates.v";
+    "gates_tb.v";
